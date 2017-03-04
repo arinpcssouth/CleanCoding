@@ -1,0 +1,653 @@
+﻿<!DOCTYPE html>
+<html  ng-app ="MyCleanSolution">
+<head>
+    <title>Simple UI Sample - Powered by Angular and Bootstrap</title>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href="../../Content/Site.css" rel="stylesheet" />
+    <link href="../../Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <link href="../../Content/mdb.min.css" rel="stylesheet" />
+   
+    <!--https://github.com/FezVrasta/bootstrap-material-design
+        https://material.io/guidelines/material-design/introduction.html
+
+        https://mdbootstrap.com/getting-started/
+        -->
+
+  
+    <link rel="apple-touch-icon" sizes="57x57" href="../../Content/Favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../Content/Favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../Content/Favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../Content/Favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../Content/Favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../Content/Favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../Content/Favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../Content/Favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../Content/Favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../Content/Favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../Content/Favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../Content/Favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../Content/Favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../Content/Favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../../Content/Favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+
+</head>
+<body class="fixed-sn black-skin">
+    <div ng-controller="AccountController" class="container">
+        <div class="row">
+            <div class="col-md-8 wow rotateInDownRight">
+                <h1>Clean coding is fun!</h1>
+                <h4>It's like going to gym. Make it a habit and you will never regret :)</h4>
+            </div>
+            <div class="col-md-4">
+                <div class="row ">
+                   
+                    <div class="col-sm-8 align-right" >
+                        <br/>
+                        Written by Arin Tahmasian
+                        arin.tahmasian@gmail.com
+                    </div>
+                    <div class="col-sm-4">
+                        <img class="logopicture" src="../../Content/Images/arin_tahmasian100.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 fadeIn text-center">
+                <br/>    
+                <img src="../../Content/Images/explainSimply.jpg" class="img-responsive" />
+            </div>
+            <div class="col-lg-6 wow fadeInRight">
+                <div id="loginCard" class="card" ng-if="activeSession.Token ==''" >
+                    <h3 class="card-header primary-color white-text">Login</h3>
+                    <div class="card-block">
+                        <h4 class="card-title">Let's login to our test application</h4>
+                        <p class="card-text">Use username: Arin and password: test for a successful login.</p>
+                        <div class="row">
+                            <form name="userLogin" ng-submit="login()">
+
+
+                                <table id="loginTable" class="extra-margin">
+                                    <tr>
+                                        <td>
+                                            Username:
+                                        </td>
+                                        <td class="cellPadding">
+                                            <input id="txtUserName" type="text" ng-model="loginCredentials.Username" required value="{{loginCredentials.Username}}" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Password:
+                                        </td>
+                                        <td class="cellPadding">
+                                            <input id="txtPassword" type="password" ng-model="loginCredentials.password" required value="{{loginCredentials.password}}" />
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="align-right">
+                                            <br />
+                                            <input type="submit" class="btn btn-primary" value="Login" />
+                                        </td>
+
+                                    </tr>
+
+                                </table>
+                               
+                                
+                                <div ng-if="error!=''" class="alert alert-danger animate-if extra-margin">
+                                    <strong>Login Failed!</strong> {{error}}
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="LoggedInCard" class="card" ng-if="activeSession.Token !=''">
+                    <h3 class="card-header primary-color white-text">User is logged in!</h3>
+                    <div class="card-block">
+                        <h4 class="card-title">Here is your token.</h4>
+                        <p class="card-text">Keep it safe :)</p>
+                        <div class="row">
+                            <table class="extra-margin">
+                                <tr>
+                                    <td>
+                                        Token:
+                                    </td>
+                                    <td class="cellPadding">
+                                        {{activeSession.Token}}<br/>
+                                        <a href="javascript:void();" ng-click="ClearToken()">Clear my token</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Last time logged in: 
+                                    </td>
+                                    <td class="cellPadding">
+                                        {{activeSession.DateLastUsed | utcToLocal:'dd.MM.yy - hh.mm a'}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        User since:
+                                    </td>
+                                    <td class="cellPadding">
+                                        {{activeSession.DateTimeInitiated | utcToLocal:'dd.MM.yy - hh.mm a'}}
+                                    </td>
+                                </tr>
+                               
+
+                                
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="row">
+            
+            <br />
+            <h3>Project Highlights</h3>
+            <p>Let's see if we can cover some of the fundamentals in object oriented programming and clear coding in this project.</p>
+            <p>I believe is simple is beautiful. In this project, there are some concepts that are exaggerated. This is done for demonstration purposes and it is not expected to be used in a small project. However, there are some important fundamentals that I believe should be respected and implemented even for the smallest project you write. </p>
+            <br/>
+            <br/>
+            <p>I will be using the following guidelines throughout this page. </p>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 "></div>
+            <div class="col-sm-2 text-center"><img src="../../Content/Images/UseAlways.png" /><br/>Use it always</div>
+            <div class="col-sm-2 text-center"><img src="../../Content/Images/AsNeeded.png" /><br/>Use it as needed</div>
+            <div class="col-sm-2 text-center"><img src="../../Content/Images/Enterprise.png" /><br/>Suitable for enterprise applications</div>
+            <div class="col-sm-3"></div>
+        </div>
+        <div class="row">    
+            <p>
+                I hope you will enjoy reviewing this little application as much as I did writing it :)
+            </p>
+            <p>Cheers,<br />Arin T.</p>
+            <br/>
+            <p>PS. The project is available in the following link.  </p>
+
+        </div>
+    </div>
+    <div class="row green-bar text-center">
+        <img src="../../Content/Images/Layers150.png" /><span class="titleText white-text xlarge">Multi Layers - Tier Application</span> 
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-1">
+                <img src="../../Content/Images/Enterprise.png" class="img-responsive" />
+            </div>
+            <div class="col-sm-7">
+                <div class="titleText">A little bit about architectural thinking</div>
+                <div><br/>Here I will try focusing on the logical layers rather than physical tiers. What you see in this demo is not a structure I would recommend for your small application. Everything comes with a cost and this is a very important factor you would need to consider when trying to scaffold your base product architecture. </div>
+                <div>
+                    <img src="../../Content/Images/triangle.png" class="img-responsive"/>
+                </div>
+                <div>As a software architect, it is very important to consider the Cost / Quality / Time triangle before writing your first sketch diagram on the paper. </div>
+            </div>
+            <div class="col-sm-4">
+                <img src="../../Content/Images/LayersOfApplication.png" class="img-responsive" />
+            </div>
+        </div>
+    </div>
+    <div class="row transparent-bar cover-completely">
+        <img src="../../Content/Images/beach.jpg" class="cover-completely"/>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-1">
+                <img src="../../Content/Images/Enterprise.png" class="img-responsive" />
+            </div>
+            <div class="col-sm-7">
+                <div class="titleText">Back to the project</div>
+                <div>
+                    <p>
+                        <br />The following is a quick diagram showing how different layers of the application interact with each other. Thank to IoC containers such as Ninject, we can take advantage of abstraction and connect different layers of the application only by abstractions.
+                    </p>
+                    <p>
+                        In another word, my service layer has no idea about the concrete implementation of the Business and Repository layers. The concrete implementation can be easily changed by switching the class library. 
+                    </p>
+                </div>
+            
+                <div>
+                    <img src="../../Content/Images/Model.jpg" class="cover-completely" />
+                </div>
+            </div>
+            <div class="col-sm-4 wow lightSpeedIn ">
+                <img src="../../Content/Images/LayersOfApplication.png" class="img-responsive" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-1">
+                
+            </div>
+            <div class="col-sm-7">
+                <div class="titleText">Unit Testing</div>
+            </div>
+            <div class="col-sm-4 wow lightSpeedIn ">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1">
+                <img src="../../Content/Images/UseAlways.png" class="img-responsive" />
+            </div>
+            <div class="col-sm-7">
+                <div class="titleText">Unit Tests</div>
+                <div>
+                    <p>
+                        My recommendation is to always use unit tests for your business logic layer. However, it is important to use mock frameworks to make sure your other layers are not involved in the unit test. Otherwise, your tests will be slow and you will start ignoring the tests overtime and it will result a poor outcome for your project.
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4 wow lightSpeedIn ">
+                <img src="../../Content/Images/UnitTests.jpg" class="img-responsive"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1">
+                <img src="../../Content/Images/AsNeeded.png" class="img-responsive" />
+            </div>
+            <div class="col-sm-7">
+                <div class="titleText">Service Layer Tests</div>
+                <div>
+                    <p>
+                        Use them as needed. For small projects, you may not need to test every single service API. My recommendation would be to do a test on critical APIs that have significant impact on your application.
+                        <br />
+                        Remember the triangle and act accordingly :)
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4 wow lightSpeedIn ">
+                <img src="../../Content/Images/SvcLayerTest.jpg" class="img-responsive" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1">
+                <img src="../../Content/Images/Enterprise.png" class="img-responsive" />
+            </div>
+            <div class="col-sm-7">
+                <div class="titleText">Integration Tests</div>
+                <div>
+                    <p>
+                        For enterprise applications, these unit tests can be set to run as a night job. These tests are the most time consuming since it hits your data layer.
+                        <br />
+                        You would need to take extra precaution when leveraging this test. A recommendation would be to run the integration tests against a test database to avoid data loss and corruption.
+                     </p>
+                </div>
+            </div>
+            <div class="col-sm-4 wow lightSpeedIn ">
+                <img src="../../Content/Images/IntegrationTests.jpg" class="img-responsive" />
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row red-bar text-center">
+        <div class="col-lg-3">
+        </div>
+
+        <div class="col-lg-3">
+            <img src="../../Content/Images/Patterns.jpg" class="img-responsive" />
+        </div>
+        <div class="col-lg-3">
+            <span class="titleText white-text xlarge">Design Pattern<br /> Highlights</span>
+        </div>
+        <div class="col-lg-3">
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-1">
+                <img src="../../Content/Images/AsNeeded.png" class="img-responsive" />
+            </div>
+            <div class="col-sm-7">
+                <div class="titleText">Chain-Style Builder Pattern</div>
+               
+
+                <div>
+                    <p>
+                        In this project I was able to demonstrate Repository, Façade, Factory and Builder patterns.
+                    </p>
+                    <p>
+                        One of the most interesting parts of my code related to patterns is the way I designed my builder pattern. It basically gives user an easy instruction on building the component by introducing the build methods one by one. 
+                    </p>
+
+                    <pre>
+Package = new PackageBuilders.Active.ActivePackageBuilder()
+            .AddFirstSports(new Sports { Name = "Basketball advance", TypeOfSport = "Basketball" })
+            .AddSecondSports(new Sports { Name = "Football masters", TypeOfSport = "Football" })
+            .AddThirdSports(new Sports { Name = "FreeStyle", TypeOfSport = "Swimming" })
+            .AddMusic(new Music { Name = "Jazz is awesome!", MusicStyle = "Jazz" })
+            .Build();
+                    </pre>
+
+
+
+                    <pre>
+namespace BusinessConcrete.PackageBuilders.Active
+{
+    
+    public class ActivePackageBuilder : IAddFirstSports, IAddSecondSports, IAddThirdSports, IAddMusic,  IPackageBuilder
+    {
+        private List&lt;IMajor&rt; Majors { get; set; }
+        //funPackage.Majors = new List&lt;Model.Education.IMajor&rt;();
+        public ActivePackageBuilder()
+        {
+            Majors = new List&lt;IMajor&rt;();
+        }
+        public IAddSecondSports AddFirstSports(Sports sports)
+        {
+            Majors.Add(sports);
+            return this;
+        }
+        public IAddThirdSports AddSecondSports(Sports sports)
+        {
+            Majors.Add(sports);
+            return this;
+        }
+        public IAddMusic AddThirdSports(Sports sports)
+        {
+            Majors.Add(sports);
+            return this;
+        }
+        public IPackageBuilder AddMusic(Music music)
+        {
+            Majors.Add(music);
+            return this;
+        }
+        public IPackage Build()
+        {
+            IPackage package = new FunPackage();
+            package.Majors = this.Majors;
+            return package;
+        }
+    }
+    #region chain interfaces
+    public interface IAddFirstSports
+    {
+        IAddSecondSports AddFirstSports(Sports sports);
+    }
+    public interface IAddSecondSports
+    {
+        IAddThirdSports AddSecondSports(Sports sports);
+    }
+    public interface IAddThirdSports
+    {
+        IAddMusic AddThirdSports(Sports sports);
+    }
+    public interface IAddMusic
+    {
+        IPackageBuilder AddMusic(Music music);
+    }
+    #endregion
+}
+                    </pre>
+
+
+
+                </div>
+            </div>
+            <div class="col-sm-4 wow lightSpeedIn ">
+                <img src="../../Content/Images/chainBuilder.jpg" class="img-responsive" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row supergreen-bar text-center">
+        <div class="col-lg-3">
+        </div>
+
+        <div class="col-lg-6">
+            <span class="titleText white-text xlarge">Go SOLID</span>
+        </div>
+        <div class="col-lg-3">
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-1">
+                <img src="../../Content/Images/Enterprise.png" class="img-responsive" />
+            </div>
+            <div class="col-sm-7">
+                <div class="titleText">Should I go SOLID?</div>
+                <div>
+                    <p>
+                        SOLID principles are very important for the health of an enterprise application and it should be respected and acted upon. However, for small projects, you may be better off skipping some of the principles.  Remember the triangle!
+                    </p>
+                    <p>
+                        In this project I tried to cover SOLID principle as much as I could. However, due to the scope of the project some of the principles could not be demonstrated. Such as LSP and ISP.
+                    </p>
+                    <p>
+                        However, I have a very interesting trick to show you on Dependency Inversion principle. Stay tuned!
+                    </p>
+                </div>
+                <div class="titleText"><br />Token Validation on WebAPI</div>
+                <div>
+                    <p>
+                        Most service oriented applications function with tokens getting passed to the services. Wouldn’t it be nice to ask the client to include the token in the header and not to pollute the main model with a foreign concept?
+                    </p>
+                    <p>
+                        There is a solution for that. You can create your own Action Filter Attribute in Web API and validate the token in the request header and reject the call before hitting the action method.
+                    </p>
+                    <pre>
+                        
+        [HttpGet]
+        [ValidateToken]
+        public HttpResponseMessage GetClassrooms()
+        {
+            var res = classroomFactory.GenerateClassrooms();
+          
+            return Request.CreateResponse(HttpStatusCode.OK, res);
+        }
+                    </pre>
+                    <pre>
+                        
+namespace ServiceLayer.Controllers.ActionFilters
+{
+    //see NinjectWebCommon.cs for more details. There is a reason this empty class i shere. 
+    public class ValidateTokenAttribute : ActionFilterAttribute
+    {
+    }
+    public class ValidateTokenFilter : AbstractActionFilter
+    {
+        public override bool AllowMultiple { get { return true; } }
+        
+        
+        ISession session { get; set; }
+        public ValidateTokenFilter(ISession session)
+        {
+            this.session = session;
+        }
+        public override void OnActionExecuting(HttpActionContext actionContext)
+        {
+            string headerToken = "";
+            try
+            {
+                headerToken = actionContext.Request.Headers.GetValues("Token").FirstOrDefault();
+            }
+            catch (Exception)
+            {
+                throw new HttpResponseException(HttpStatusCode.Unauthorized);
+            }
+            if(session.GetSessionByToken(headerToken).Token == new Guid())
+                throw new HttpResponseException(HttpStatusCode.Unauthorized);
+        }
+    }
+}
+        </pre>
+
+                </div>
+                <div class="titleText"><br />But Wait!!! How do I take care of Dependency Injection there???</div>
+                <div>
+                    <p>
+                        A big concrete wall. To validate the token in action filter, you would need the concrete Business Layer to be injected to the filter.
+                    </p>
+                    <p>
+                        I encountered this problem three years ago. It was not easy but I finally found a solution to resolve the problem. Most solutions on the internet does not solve the problem and is very confusing. Here is how it goes…
+                    </p>
+                 
+                </div>
+
+
+
+            </div>
+            <div class="col-sm-4 wow lightSpeedIn ">
+                <img src="../../Content/Images/ActionFilters.jpg" class="img-responsive" />
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-sm-1">
+                
+            </div>
+            <div class="col-sm-7">
+                <div>
+                    <p>
+                        You need to create an action filter that inherits from AbstractActionFilter instead of ActionFilterAttribute. Then you create an empty attribute for your token validation.
+                        <br />
+                        <br />
+                        The magic happens in NinjectWebCommon.cs
+                    </p>
+                    <p>
+                        By adding this line in RegisterServices method.
+                    </p>
+                    <pre>
+    kernel.BindHttpFilter&lt;ValidateTokenFilter&rt;(FilterScope.Action).WhenActionMethodHas&lt;ValidateTokenAttribute&rt;();
+                    </pre>
+                    <pre>
+                     
+ private static void RegisterServices(IKernel kernel)
+        {
+            //Here you can easily switch between repository implementaitons. Thanks to Dependency inversion principle. 
+            //kernel.Bind&lt;IAuthenticationRepository&rt;().To&lt;RepositoryConcrete.AuthenticationRepository&rt;();
+            kernel.Bind&lt;IAuthenticationRepository&rt;().To&lt;RepositoryConcrete.InMemory.AuthenticationInMemoryRepository&rt;();
+            kernel.Bind&lt;ISession&rt;().To&lt;BusinessConcrete.Session&rt;();
+            kernel.Bind&lt;IClassroomFactory&rt;().To&lt;BusinessConcrete.Factories.ClassroomFactory&rt;();
+            //this is to enable DI in action filters. Basically we bind the filter to an empty attribute class. 
+            kernel.BindHttpFilter&lt;ValidateTokenFilter&rt;(FilterScope.Action).WhenActionMethodHas&lt;ValidateTokenAttribute&rt;();
+        }
+               
+                </pre>
+                </div>
+            </div>
+            <div class="col-sm-4 wow lightSpeedIn ">
+                <img src="../../Content/Images/Ninject.jpg" class="img-responsive" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row green-bar text-center">
+        <div class="col-lg-3">
+        </div>
+
+        <div class="col-lg-6">
+            <span class="titleText white-text xlarge">UI / UX</span>
+            <br/>
+            <span class="titleText white-text">The Face of  Your Product</span>
+        </div>
+        <div class="col-lg-3">
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-1">
+                <img src="../../Content/Images/UseAlways.png" class="img-responsive" />
+            </div>
+            <div class="col-sm-7">
+                <div class="titleText">Why matters?</div>
+                <div>
+                    <p>
+                        User interface and experience considerations are as important as your back-end architecture. You can have the world’s best software product but without proper presentation, your product will simply be unusable. 
+                    </p>
+                </div>
+                <div class="titleText">The winner of UX vs. UI is the UX. </div>
+                <div>
+                    <p>
+                        Before going fancy, let's give the user an easy interface to operate. Minimum clicks, do things where expected and ask real users to give you opinion.
+                        <br />
+                        Don't become defensive on the feedback you hear. Act on it and put yourself in users’ shoes!
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4 wow lightSpeedIn ">
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1">
+                <img src="../../Content/Images/AsNeeded.png" class="img-responsive" />
+            </div>
+            <div class="col-sm-7">
+                <div class="titleText">Architect your user interface. Leverage MVVM, MVP patterns</div>
+                <div>
+                    <p>
+                        Leverage design patterns in your front-end applications. Now-a-days there are thousands of ways you can present your application to the end user and is not limited to web and mobile. TVs, Fridges, Cars, Watches and more…   
+                    </p>
+                </div>
+                <div class="titleText">Angular for Web</div>
+                <div>
+                    <p>
+                        I finished this project in about 8 hours. A small project that shows a life cycle of a clean application from end-user to the server-side. However, I still used Angular for this project. 
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4 wow lightSpeedIn ">
+                
+            </div>
+        </div>
+
+    </div>
+    <div class="row gray-bar text-center">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-1">
+            <img src="../../Content/Images/arin_tahmasian100.png" class="img-responsive" />
+        </div>
+        <div class="col-lg-5">
+            <span class="titleText white-text xlarge">Thank You!</span>
+            <br />
+            <span class="titleText white-text">Thank you for your time reviewing my project :)</span>
+        </div>
+        <div class="col-lg-3">
+        </div>
+    </div>
+
+
+
+    <script src="../../Scripts/wow.min.js"></script>
+    <script src="../../Scripts/jquery-1.9.1.min.js"></script>
+    <script src="../../Scripts/angular.min.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../Scripts/tether.min.js"></script>
+    <script src="../../Scripts/mdb.min.js"></script>
+    <script src="../../Scripts/Home/index.js"></script>
+
+    <script>
+    new WOW().init();
+    </script>
+    <noscript>Your browser does not support JavaScript! For a better experience, please enable Javascript. </noscript>
+
+</body>
+</html>
