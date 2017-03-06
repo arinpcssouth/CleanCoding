@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6494BD97-80B4-48EC-9F35-A041F88010BB}</ProjectGuid>
+    <ProjectGuid>{6F52051A-44E1-43AB-B7A4-75411AA61016}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BusinessAbstract</RootNamespace>
-    <AssemblyName>BusinessAbstract</AssemblyName>
+    <RootNamespace>RepositoryConcreteInMemory</RootNamespace>
+    <AssemblyName>RepositoryConcreteInMemory</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,17 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Builders\IPackageBuilder.cs" />
-    <Compile Include="Factories\IClassroomFactory.cs" />
-    <Compile Include="Factories\IRegistrationFactory.cs" />
-    <Compile Include="IRegistration.cs" />
-    <Compile Include="ISession.cs" />
+    <Compile Include="AuthenticationInMemoryRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistrationRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{4a51b7c8-781f-4ca9-8bf9-02168ec52720}</Project>
       <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepositoryAbstract\RepositoryAbstract.csproj">
+      <Project>{5c7e0c02-f74a-4c9d-a85f-316b3361474c}</Project>
+      <Name>RepositoryAbstract</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

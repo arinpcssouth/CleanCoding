@@ -6,20 +6,18 @@ using System.Threading.Tasks;
 
 namespace Model.PeopleClasses
 {
-    public class Teacher : Staff
+    public class OfficeStaff:Staff
     {
         public override PersonRole Role
         {
             get
             {
-                return PersonRole.Teacher;
+                return PersonRole.OfficeStaff;
             }
         }
 
-        public string FormalName { get; set; }
 
-        public bool AcceptsEmails { get; set; }
-        public Classroom TeachesIn { get; set; }
+
 
     }
 }

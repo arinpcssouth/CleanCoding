@@ -56,11 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAuthenticationRepository.cs" />
-    <Compile Include="MyCleanSolutionDatabaseDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyCleanSolutionDatabaseDataSet.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="IRegistrationRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -75,27 +71,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MyCleanSolutionDatabase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="MyCleanSolutionDatabase_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>MyCleanSolutionDatabase.mdf</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
-    <None Include="MyCleanSolutionDatabaseDataSet.xsc">
-      <DependentUpon>MyCleanSolutionDatabaseDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="MyCleanSolutionDatabaseDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MyCleanSolutionDatabaseDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="MyCleanSolutionDatabaseDataSet.xss">
-      <DependentUpon>MyCleanSolutionDatabaseDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

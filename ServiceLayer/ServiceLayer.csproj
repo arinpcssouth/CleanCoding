@@ -186,9 +186,9 @@
       <Project>{62ab8f48-5f7a-40f2-896e-9bc9e2b53bf2}</Project>
       <Name>BusinessConcrete</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RepositoryConcrete\RepositoryConcrete.csproj">
-      <Project>{89aabffc-c2ff-4c53-a87c-34ce50b83661}</Project>
-      <Name>RepositoryConcrete</Name>
+    <ProjectReference Include="..\RepositoryConcreteInMemory\RepositoryConcreteInMemory.csproj">
+      <Project>{6f52051a-44e1-43ab-b7a4-75411aa61016}</Project>
+      <Name>RepositoryConcreteInMemory</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

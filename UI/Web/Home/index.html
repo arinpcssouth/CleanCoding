@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html  ng-app ="MyCleanSolution">
 <head>
-    <title>Simple UI Sample - Powered by Angular and Bootstrap</title>
+    <title>Clean Coding by Arin Tahmasian</title>
 	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
@@ -45,18 +45,18 @@
         <div class="row">
             <div class="col-md-8 wow rotateInDownRight">
                 <h1>Clean coding is fun!</h1>
-                <h4>It's like going to gym. Make it a habit and you will never regret :)</h4>
+                <h4>It's like going to the gym. Make it a habit and you will never regret :)</h4>
             </div>
             <div class="col-md-4">
                 <div class="row ">
-                   
-                    <div class="col-sm-8 align-right" >
-                        <br/>
-                        Written by Arin Tahmasian
-                        arin.tahmasian@gmail.com
-                    </div>
                     <div class="col-sm-4">
                         <img class="logopicture" src="../../Content/Images/arin_tahmasian100.png" />
+                    </div>
+                    <div class="col-sm-8 align-left">
+                        <br />
+                        Written by Arin Tahmasian
+                        <br />
+                        arin.tahmasian@gmail.com
                     </div>
                 </div>
             </div>
@@ -154,6 +154,7 @@
                         </div>
                     </div>
                 </div>
+                <a  class="btn btn-success" href="https://github.com/arinpcssouth/CleanCoding.git"><span class="glyphicon glyphicon-download"></span> Download from Git</a>
 
 
             </div>
@@ -162,11 +163,12 @@
             
             <br />
             <h3>Project Highlights</h3>
-            <p>Let's see if we can cover some of the fundamentals in object oriented programming and clear coding in this project.</p>
-            <p>I believe is simple is beautiful. In this project, there are some concepts that are exaggerated. This is done for demonstration purposes and it is not expected to be used in a small project. However, there are some important fundamentals that I believe should be respected and implemented even for the smallest project you write. </p>
-            <br/>
-            <br/>
-            <p>I will be using the following guidelines throughout this page. </p>
+            <p>The following is a sample project I wrote to demonstrate the power of clean coding. This project targets software engineers in all range of expertise.</p>
+            <p>Simple is beautiful. Not every project is the same so as its requirements. I will be using some annotations throughout this page to give readers an idea on where the content applies. </p>
+            <br />
+            <br />
+            <p>You will see the follow three icons throughout this page. This will give you an idea on where I think is the proper time to use them.</p>
+
         </div>
         <div class="row">
             <div class="col-sm-3 "></div>
@@ -177,11 +179,15 @@
         </div>
         <div class="row">    
             <p>
-                I hope you will enjoy reviewing this little application as much as I did writing it :)
+                Please note that the content in this website is simply my thoughts and opinions and the way I do coding and this project is simply a sample project to demonstrate some features and ways you can do clean coding. 
+                I wrote this project in a weekend and did not have much time to complete it. Please use it in your own risk. 
+                <br/><br/>
+                I hope you will enjoy reviewing it as much as I did writing it :)
             </p>
             <p>Cheers,<br />Arin T.</p>
             <br/>
             <p>PS. The project is available in the following link.  </p>
+            <a href="https://github.com/arinpcssouth/CleanCoding.git" >Download from Git</a>
 
         </div>
     </div>
@@ -195,11 +201,11 @@
             </div>
             <div class="col-sm-7">
                 <div class="titleText">A little bit about architectural thinking</div>
-                <div><br/>Here I will try focusing on the logical layers rather than physical tiers. What you see in this demo is not a structure I would recommend for your small application. Everything comes with a cost and this is a very important factor you would need to consider when trying to scaffold your base product architecture. </div>
+                <div><br/>Here I will try to focus on the logical layers rather than physical tiers. What you see in this demo is not a structure I would recommend for your small application. Everything comes with a cost and this is a very important factor you would need to consider when trying to scaffold your base product architecture. </div>
                 <div>
                     <img src="../../Content/Images/triangle.png" class="img-responsive"/>
                 </div>
-                <div>As a software architect, it is very important to consider the Cost / Quality / Time triangle before writing your first sketch diagram on the paper. </div>
+                <div>As a software architect, it is very important to consider the Cost / Quality / Time triangle before writing your very first sketch diagram on the paper. </div>
             </div>
             <div class="col-sm-4">
                 <img src="../../Content/Images/LayersOfApplication.png" class="img-responsive" />
@@ -218,10 +224,10 @@
                 <div class="titleText">Back to the project</div>
                 <div>
                     <p>
-                        <br />The following is a quick diagram showing how different layers of the application interact with each other. Thank to IoC containers such as Ninject, we can take advantage of abstraction and connect different layers of the application only by abstractions.
+                        <br />The following is a quick diagram showing how different layers of the application interact with each other. Thanks to IoC containers such as Ninject, we can take advantage of abstractions and connect different layers of the application without knowing anything about the concrete implementation of it.
                     </p>
                     <p>
-                        In another word, my service layer has no idea about the concrete implementation of the Business and Repository layers. The concrete implementation can be easily changed by switching the class library. 
+                        In another word, my service layer has no idea about the concrete implementation of the Business and Repository layers. The concrete implementation can be easily switched without bothering the parent layers. 
                     </p>
                 </div>
             
@@ -252,7 +258,7 @@
                 <div class="titleText">Unit Tests</div>
                 <div>
                     <p>
-                        My recommendation is to always use unit tests for your business logic layer. However, it is important to use mock frameworks to make sure your other layers are not involved in the unit test. Otherwise, your tests will be slow and you will start ignoring the tests overtime and it will result a poor outcome for your project.
+                        My recommendation is to always use unit tests for your business logic layer. However, it is important to use mock frameworks to make sure your other layers are not involved in the unit testing. Otherwise, your tests will be slow and you will start ignoring and skipping the tests overtime and it will result a poor outcome for your project.
                     </p>
                 </div>
             </div>
@@ -288,7 +294,7 @@
                     <p>
                         For enterprise applications, these unit tests can be set to run as a night job. These tests are the most time consuming since it hits your data layer.
                         <br />
-                        You would need to take extra precaution when leveraging this test. A recommendation would be to run the integration tests against a test database to avoid data loss and corruption.
+                        You would need to take extra precaution when performing this test. A recommendation would be to run the integration tests against a test database to avoid data loss and corruption.
                      </p>
                 </div>
             </div>
@@ -349,11 +355,11 @@ namespace BusinessConcrete.PackageBuilders.Active
     
     public class ActivePackageBuilder : IAddFirstSports, IAddSecondSports, IAddThirdSports, IAddMusic,  IPackageBuilder
     {
-        private List&lt;IMajor&rt; Majors { get; set; }
-        //funPackage.Majors = new List&lt;Model.Education.IMajor&rt;();
+        private List&lt;IMajor&gt; Majors { get; set; }
+        //funPackage.Majors = new List&lt;Model.Education.IMajor&gt;();
         public ActivePackageBuilder()
         {
-            Majors = new List&lt;IMajor&rt;();
+            Majors = new List&lt;IMajor&gt;();
         }
         public IAddSecondSports AddFirstSports(Sports sports)
         {
@@ -435,7 +441,7 @@ namespace BusinessConcrete.PackageBuilders.Active
                         SOLID principles are very important for the health of an enterprise application and it should be respected and acted upon. However, for small projects, you may be better off skipping some of the principles.  Remember the triangle!
                     </p>
                     <p>
-                        In this project I tried to cover SOLID principle as much as I could. However, due to the scope of the project some of the principles could not be demonstrated. Such as LSP and ISP.
+                        In this project I tried to cover SOLID principles as much as I could. However, due to the scope of the project some of the principles could not be demonstrated. Such as LSP and ISP.
                     </p>
                     <p>
                         However, I have a very interesting trick to show you on Dependency Inversion principle. Stay tuned!
@@ -444,7 +450,7 @@ namespace BusinessConcrete.PackageBuilders.Active
                 <div class="titleText"><br />Token Validation on WebAPI</div>
                 <div>
                     <p>
-                        Most service oriented applications function with tokens getting passed to the services. Wouldn’t it be nice to ask the client to include the token in the header and not to pollute the main model with a foreign concept?
+                        Most service oriented applications function with tokens getting passed to the services. Wouldn’t it be nice to ask the client to include the token in the message header and not to pollute the main request model (parameter) with an unrelated concept?
                     </p>
                     <p>
                         There is a solution for that. You can create your own Action Filter Attribute in Web API and validate the token in the request header and reject the call before hitting the action method.
@@ -500,10 +506,10 @@ namespace ServiceLayer.Controllers.ActionFilters
                 <div class="titleText"><br />But Wait!!! How do I take care of Dependency Injection there???</div>
                 <div>
                     <p>
-                        A big concrete wall. To validate the token in action filter, you would need the concrete Business Layer to be injected to the filter.
+                        We have a big problem here. To validate the token in action filter, you would need the concrete Business Layer to be injected to the filter.
                     </p>
                     <p>
-                        I encountered this problem three years ago. It was not easy but I finally found a solution to resolve the problem. Most solutions on the internet does not solve the problem and is very confusing. Here is how it goes…
+                        I encountered this problem three years ago. It was not easy but I finally found a solution to resolve the problem. Most solutions on the internet even today do not solve the problem and is very confusing. Here is how it goes…
                     </p>
                  
                 </div>
@@ -534,19 +540,19 @@ namespace ServiceLayer.Controllers.ActionFilters
                         By adding this line in RegisterServices method.
                     </p>
                     <pre>
-    kernel.BindHttpFilter&lt;ValidateTokenFilter&rt;(FilterScope.Action).WhenActionMethodHas&lt;ValidateTokenAttribute&rt;();
+    kernel.BindHttpFilter&lt;ValidateTokenFilter&gt;(FilterScope.Action).WhenActionMethodHas&lt;ValidateTokenAttribute&gt;();
                     </pre>
                     <pre>
                      
  private static void RegisterServices(IKernel kernel)
         {
             //Here you can easily switch between repository implementaitons. Thanks to Dependency inversion principle. 
-            //kernel.Bind&lt;IAuthenticationRepository&rt;().To&lt;RepositoryConcrete.AuthenticationRepository&rt;();
-            kernel.Bind&lt;IAuthenticationRepository&rt;().To&lt;RepositoryConcrete.InMemory.AuthenticationInMemoryRepository&rt;();
-            kernel.Bind&lt;ISession&rt;().To&lt;BusinessConcrete.Session&rt;();
-            kernel.Bind&lt;IClassroomFactory&rt;().To&lt;BusinessConcrete.Factories.ClassroomFactory&rt;();
+            //kernel.Bind&lt;IAuthenticationRepository&gt;().To&lt;RepositoryConcrete.AuthenticationRepository&gt;();
+            kernel.Bind&lt;IAuthenticationRepository&gt;().To&lt;RepositoryConcrete.InMemory.AuthenticationInMemoryRepository&gt;();
+            kernel.Bind&lt;ISession&gt;().To&lt;BusinessConcrete.Session&gt;();
+            kernel.Bind&lt;IClassroomFactory&gt;().To&lt;BusinessConcrete.Factories.ClassroomFactory&gt;();
             //this is to enable DI in action filters. Basically we bind the filter to an empty attribute class. 
-            kernel.BindHttpFilter&lt;ValidateTokenFilter&rt;(FilterScope.Action).WhenActionMethodHas&lt;ValidateTokenAttribute&rt;();
+            kernel.BindHttpFilter&lt;ValidateTokenFilter&gt;(FilterScope.Action).WhenActionMethodHas&lt;ValidateTokenAttribute&gt;();
         }
                
                 </pre>
@@ -557,6 +563,107 @@ namespace ServiceLayer.Controllers.ActionFilters
             </div>
         </div>
     </div>
+
+
+    <div class="row green-bar text-center">
+        <div class="col-lg-3">
+        </div>
+
+        <div class="col-lg-6">
+            <span class="titleText white-text xlarge">Generics</span>
+            <br />
+            <span class="titleText white-text">&lt; T &gt;   -  Covariance and Contravariance</span>
+        </div>
+        <div class="col-lg-3">
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-1">
+                <img src="../../Content/Images/Enterprise.png" class="img-responsive" />
+            </div>
+            <div class="col-sm-7">
+                <div class="titleText"></div>
+                <div>
+
+                    <p>
+                        My intend here is not to explain what Generics are but I want to introduce a very specific feature in generics that might come handy in some complex applications. This specific situation is when you are trying to use polymorphic behaviors in generics.
+
+                    </p>
+                    <p>
+                        Let's start with an example. In our example, Teacher is derived from Staff and Staff is derived from Person.
+                        <br />
+                        <br />
+                        In object oriented world, it is perfectly okay to pass a more derived object to a method that accepts a less derived object.
+
+                        For example, a method that accepts a Person as a parameter. It would be perfectly okay to pass a Teacher object to that method. Since teacher is a person. However, in Generic world, the compiler seems to have some problems when trying to pass a less derived generic type parameter to the generic class. This is because the compiler wants to know the direction the generic type parameter is going to be used. This is done by adding “in” or “out” modifiers to the definition.
+                    </p>
+                    <p>
+
+                        When “out” modifier is used (Covariant), the methods inside the interface are allowed to return a type that is more derived specified by the generic type parameter. Basically, the generic type parameter is used as an output here.
+                        <br />
+                        <br />
+                        On the other hand, Contravariance “in” works in the opposite direction. When using “in” modifier you are not allowed to return a more derived type than the generic type parameter and you can only consume the more derived type inside the class but you cannot return it. Which is being used as an input parameter here.
+
+
+
+                    <p>Note that both “out” and “in” modifiers are only allowed in delegates or interfaces. </p>
+
+                    <p>
+                        In the code below you will notice if we remove the “in” or “out” keywords from our interfaces, the test will fail.
+                    </p>
+
+            
+                </div>
+                <pre>
+    namespace RepositoryAbstract
+    {
+        //in
+        public interface IRegistrationWriteRepository&lt;in T&gt; 
+        {
+            bool Register(T person);
+        }
+        public interface IRegistrationReadRepository&lt;out T&gt; 
+        {
+            IEnumerable&lt;T&gt; GetListOf(Type personType);
+            IEnumerable&lt;T&gt; GetEveryone();
+        }
+        public interface IRegistrationRepository&lt;T&gt; :IRegistrationReadRepository&lt;T&gt;, IRegistrationWriteRepository&lt;T&gt; 
+        {
+        }
+    }
+                </pre>
+                <pre>
+  public List&lt;Person&gt; GetListOf(Type personType)
+        {
+            return ((IRegistrationReadRepository&lt;Person&gt;)registrationRepository).GetListOf(personType).ToList();
+        }
+        public bool RegisterOfficeStaff(OfficeStaff officeStaff)
+        {
+            //can apply some logic here later to work on the officeStaffobject before sending it to repo.
+            return ((IRegistrationWriteRepository&lt;OfficeStaff&gt;)registrationRepository).Register(officeStaff);
+        }
+        public bool RegisterTeacher(Teacher teacher)
+        {
+            //can apply some logic here later to work on the teacher object before sending it to repo.
+            return ((IRegistrationWriteRepository&lt;Teacher&gt;)registrationRepository).Register(teacher);
+        }
+                </pre>
+
+
+            </div>
+            <div class="col-sm-4 wow lightSpeedIn ">
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
 
     <div class="row green-bar text-center">
         <div class="col-lg-3">
@@ -585,9 +692,9 @@ namespace ServiceLayer.Controllers.ActionFilters
                 <div class="titleText">The winner of UX vs. UI is the UX. </div>
                 <div>
                     <p>
-                        Before going fancy, let's give the user an easy interface to operate. Minimum clicks, do things where expected and ask real users to give you opinion.
+                        Before going fancy, let's give the user an easy interface to operate. Minimum clicks, do things where expected and ask real users for feedback.
                         <br />
-                        Don't become defensive on the feedback you hear. Act on it and put yourself in users’ shoes!
+                        Don't become defensive on the feedback you get. Act on it and put yourself in users’ shoes!
                     </p>
                 </div>
             </div>
@@ -600,16 +707,17 @@ namespace ServiceLayer.Controllers.ActionFilters
                 <img src="../../Content/Images/AsNeeded.png" class="img-responsive" />
             </div>
             <div class="col-sm-7">
-                <div class="titleText">Architect your user interface. Leverage MVVM, MVP patterns</div>
+                <div class="titleText">Architect your user interface. Leverage MVVM, MVP and similar patterns</div>
                 <div>
                     <p>
-                        Leverage design patterns in your front-end applications. Now-a-days there are thousands of ways you can present your application to the end user and is not limited to web and mobile. TVs, Fridges, Cars, Watches and more…   
+                        Leverage design patterns in your front-end applications. Nowadays there are thousands of ways you can present your application to the end user and is not limited to web and mobile technologies. TVs, Fridges, Cars, Watches and more…
                     </p>
+                    <p>Managing and maintaining all the UI interfaces can soon become a nightmare if not handled properly.</p>
                 </div>
                 <div class="titleText">Angular for Web</div>
                 <div>
                     <p>
-                        I finished this project in about 8 hours. A small project that shows a life cycle of a clean application from end-user to the server-side. However, I still used Angular for this project. 
+                        I finished this project in about 8 hours. A small project that shows a life cycle of a clean application from end-user to the server-side. To make life easier for me, I used Angular to handle the front-end operations. I highly recommend using Andgular or a similar library to facilitate and organize your front-end development.
                     </p>
                 </div>
             </div>

@@ -56,9 +56,11 @@
     <Compile Include="Education\Science.cs" />
     <Compile Include="Education\Sports.cs" />
     <Compile Include="PeopleClasses\Classroom.cs" />
+    <Compile Include="PeopleClasses\OfficeStaff.cs" />
     <Compile Include="PeopleClasses\Parent.cs" />
     <Compile Include="PeopleClasses\Person.cs" />
     <Compile Include="PeopleClasses\PersonRole.cs" />
+    <Compile Include="PeopleClasses\Staff.cs" />
     <Compile Include="PeopleClasses\Student.cs" />
     <Compile Include="PeopleClasses\Teacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

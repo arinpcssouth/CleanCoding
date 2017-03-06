@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Model.PeopleClasses
 {
-    public enum PersonRole
+    public abstract class Staff : Person
     {
-        OfficeStaff,
-        Teacher,
-        Parent,
-        Student
+        public override PersonRole Role { get; }
+         
+        public string GovernmentEmployeeId { get; set; }
+
     }
 }

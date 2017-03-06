@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIWeb", "UI\UIWeb.csproj", "{3C56D7FC-04B8-47C0-B555-3F17F3A8B262}"
 EndProject
@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessConcrete", "Busines
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryAbstract", "RepositoryAbstract\RepositoryAbstract.csproj", "{5C7E0C02-F74A-4C9D-A85F-316B3361474C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryConcrete", "RepositoryConcrete\RepositoryConcrete.csproj", "{89AABFFC-C2FF-4C53-A87C-34CE50B83661}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryConcreteDatabase", "RepositoryConcrete\RepositoryConcreteDatabase.csproj", "{89AABFFC-C2FF-4C53-A87C-34CE50B83661}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{D3D376DC-83F1-427C-A4AE-907E06770E14}"
 EndProject
@@ -26,6 +26,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{6653DE3E-6FD0-4EA2-9218-811BFDD882B6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLayerTest", "ServiceLayerTest\ServiceLayerTest.csproj", "{3871B8F9-FA4B-4391-9597-E50904FD314F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryConcreteInMemory", "RepositoryConcreteInMemory\RepositoryConcreteInMemory.csproj", "{6F52051A-44E1-43AB-B7A4-75411AA61016}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +79,10 @@ Global
 		{3871B8F9-FA4B-4391-9597-E50904FD314F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3871B8F9-FA4B-4391-9597-E50904FD314F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3871B8F9-FA4B-4391-9597-E50904FD314F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F52051A-44E1-43AB-B7A4-75411AA61016}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F52051A-44E1-43AB-B7A4-75411AA61016}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F52051A-44E1-43AB-B7A4-75411AA61016}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F52051A-44E1-43AB-B7A4-75411AA61016}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

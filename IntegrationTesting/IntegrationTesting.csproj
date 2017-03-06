@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="AcountRelatedTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistrationTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessAbstract\BusinessAbstract.csproj">
@@ -84,9 +85,9 @@
       <Project>{5c7e0c02-f74a-4c9d-a85f-316b3361474c}</Project>
       <Name>RepositoryAbstract</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RepositoryConcrete\RepositoryConcrete.csproj">
-      <Project>{89aabffc-c2ff-4c53-a87c-34ce50b83661}</Project>
-      <Name>RepositoryConcrete</Name>
+    <ProjectReference Include="..\RepositoryConcreteInMemory\RepositoryConcreteInMemory.csproj">
+      <Project>{6f52051a-44e1-43ab-b7a4-75411aa61016}</Project>
+      <Name>RepositoryConcreteInMemory</Name>
     </ProjectReference>
     <ProjectReference Include="..\ServiceLayer\ServiceLayer.csproj">
       <Project>{07f248d6-f5e5-41ed-9063-886eaa124a35}</Project>

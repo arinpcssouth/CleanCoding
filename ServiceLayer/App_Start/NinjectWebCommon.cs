@@ -18,6 +18,7 @@ namespace ServiceLayer.App_Start
     using Controllers.ActionFilters;
     using Ninject.Web.WebApi.FilterBindingSyntax;
     using System.Web.Http.Filters;
+    using Model.PeopleClasses;
 
     public static class NinjectWebCommon 
     {
@@ -74,7 +75,11 @@ namespace ServiceLayer.App_Start
             
             //Here you can easily switch between repository implementaitons. Thanks to Dependency inversion principle. 
             //kernel.Bind<IAuthenticationRepository>().To<RepositoryConcrete.AuthenticationRepository>();
-            kernel.Bind<IAuthenticationRepository>().To<RepositoryConcrete.InMemory.AuthenticationInMemoryRepository>();
+            kernel.Bind<IAuthenticationRepository>().To<RepositoryConcreteInMemory.AuthenticationRepository>();
+
+
+            kernel.Bind<IRegistrationRepository<Person>>().To<RepositoryConcreteInMemory.RegistrationRepository<Person>>();
+
 
             kernel.Bind<ISession>().To<BusinessConcrete.Session>();
             kernel.Bind<IClassroomFactory>().To<BusinessConcrete.Factories.ClassroomFactory>();
